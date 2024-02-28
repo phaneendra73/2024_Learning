@@ -24,7 +24,8 @@ function App() {
 
   const passwordcopy = useCallback(() => {
     passwordref.current?.select();
-    window.navigator.clipboard.writeText(password), [password];
+    passwordref.current?.setSelectionRange(0, 23);
+    window.navigator.clipboard.writeText(password);
   }, [password]);
 
   useEffect(() => {
@@ -40,6 +41,7 @@ function App() {
             value={password}
             className="outline-none w-full  px-3"
             placeholder="Password"
+            ref={passwordref}
             readOnly
           />
           <button
@@ -58,7 +60,6 @@ function App() {
               max={27}
               id="passLengthInput"
               className="cursor-pointer"
-              ref={passwordref}
               onChange={(e) => setPassLength(e.target.value)}
             />
             <label htmlFor="passLengthInput"> Length: {passLength}</label>
