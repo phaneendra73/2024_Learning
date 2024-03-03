@@ -1,6 +1,6 @@
 import { useState } from "react";
 import useCurrencyInfo from "../customhook/useCurrencyInfo";
-import { InputBox } from "./FormInput";
+import InputBox from "./FormInput.jsx";
 function App() {
   const [amount, setAmount] = useState(0);
   const [from, setFrom] = useState("usd");
@@ -38,14 +38,14 @@ function App() {
             }}
           >
             <div className="w-full mb-1">
-              {/* <InputBox
+              <InputBox
                 label="From"
                 amount={amount}
                 currencyOptions={options}
                 onCurrencyChange={(currency) => setAmount(amount)}
                 selectCurrency={from}
                 onAmountChange={(amount) => setAmount(amount)}
-              /> */}
+              />
             </div>
             <div className="relative w-full h-0.5">
               <button
@@ -57,14 +57,14 @@ function App() {
               </button>
             </div>
             <div className="w-full mt-1 mb-4">
-              {/* <InputBox
+              <InputBox
                 label="To"
                 amount={convertedAmount}
                 currencyOptions={options}
                 onCurrencyChange={(currency) => setTo(currency)}
                 selectCurrency={from}
                 amountDisable
-              /> */}
+              />
             </div>
             <button
               type="submit"
