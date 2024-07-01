@@ -16,21 +16,15 @@ datasource db {
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  name      String?
-  posts     Post[]   // One-to-many relationship with Post
-
-  // Define one-to-many relationship with Post
-  // posts    Post[]
+  firstName String
+  lastName String
+  password String
 }
 
-model Post {
-  id         Int      @id @default(autoincrement())
-  title      String
-  content    String?
-  published  Boolean  @default(false)
-  author     User     @relation(fields: [authorId], references: [id])
-  authorId   Int
+model todo {
+  id Int  @id @default(autoincrement())
+  title String
+  description String?
+  done Boolean @default(false)
 
-  // Define many-to-one relationship with User
-  // author    User      @relation(fields: [authorId], references: [id])
 }
